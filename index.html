@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Awareness for Teens</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="OIP.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+        }
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .budget-item input {
+            width: 60px;
+        }
+        .budget-total {
+            text-align: right;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+    
+        .carousel-item img {
+            max-height: 400px; /* Adjust the maximum height as needed */
+            width: auto;
+            margin: 0 auto; /* Center the image horizontally */
+        }
+        marquee {
+        background-color: #0798e7;
+        color: #e8d9ea;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        border: 2px solid #08ea9bf5;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(234, 14, 14, 0.1);
+        width: 100%; 
+        margin: 0px auto; 
+    }  
+
+        
+    .resource {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .resource h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .resource p {
+            margin-bottom: 10px;
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 200px;
+        }
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .blog-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+      
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+        }
+        stock-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .stock-table th, .stock-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .stock-table th {
+            background-color: #f5f5f5;
+        }
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer {
+  background-color: #343a40;
+  color: #dd2929;
+  padding: 50px 0;
+}
+
+footer h4 {
+  color: #ffc107;
+}
+
+footer p {
+    color: #fb8c2b;
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #312c2c;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+footer iframe {
+  border: none;
+}
+
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer ul li a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+footer .col-md-4 a {
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  footer .col-md-4 {
+    margin-bottom: 30px;
+  }
+}
+
+footer .map-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Financial Awareness for Teens!</h1>
+        
+    </header>
+    <nav>
+        <button><a href="home.html">Home</a></button>
+        <button><a href="budgeting.html">Budgeting</a></button>
+        <button><a href="saving.html">Saving</a></button>
+        <button><a href="stock.html">Stock</a></button>
+        <button><a href="investing.html">Investing</a></button>
+        <button><a href="education.html">Education</a></button>
+        <button><a href="game.html">Games/Quizzes</a></button>
+        <button><a href="community.html">Community/Forums</a></button>
+        <button><a href="resource.html">Resources</a></button>
+       
+    </nav>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="designer.png" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="image1.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="image3.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="image5.jpg" alt="Fourth slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="image6.jpg" alt="Fifth slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="image4.jpg" alt="Sixth slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+        <p><strong>Finance Education for Teens:</strong> Empowering the next generation of financially savvy individuals. Start with a captivating introduction emphasizing the importance of financial education for teenagers in today's world. Highlight the significance of equipping teens with essential money management skills to make informed financial decisions and secure their future. Key topics include stock market basics, mutual fund investment, budgeting skills, smart saving strategies, financial literacy programs, and investment planning for the future. Conclude with a compelling call-to-action, urging teens to take charge of their financial future by seeking out opportunities for financial education and empowerment. Encourage them to explore the resources and tools available on the platform to kickstart their journey towards financial independence.</p>
+    </marquee>
+
+   <div class="container">
+        <h1>Weekly Expense Tracker</h1>
+        <form id="expenseForm">
+            <label for="week1">Week 1:</label>
+            <input type="number" id="week1" name="week1" min="0" max="5000" step="0.01"><br>
+            <label for="week2">Week 2:</label>
+            <input type="number" id="week2" name="week2" min="0" max="5000" step="0.01"><br>
+            <label for="week3">Week 3:</label>
+            <input type="number" id="week3" name="week3" min="0" max="5000" step="0.01"><br>
+            <label for="week4">Week 4:</label>
+            <input type="number" id="week4" name="week4" min="0" max="5000" step="0.01"><br>
+            <button type="button" onclick="updateChart()">Update Graph</button>
+        </form>
+        <canvas id="expenseChart" width="400" height="200"></canvas>
+    </div>
+
+    <script>
+        function updateChart() {
+            var week1 = parseFloat(document.getElementById("week1").value) || 0;
+            var week2 = parseFloat(document.getElementById("week2").value) || 0;
+            var week3 = parseFloat(document.getElementById("week3").value) || 0;
+            var week4 = parseFloat(document.getElementById("week4").value) || 0;
+
+            myChart.data.datasets[0].data = [week1, week2, week3, week4];
+            myChart.update();
+        }
+
+        var ctx = document.getElementById('expenseChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Weekly Expenses',
+                    data: [0, 0, 0, 0],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Amount Spent in ruppees'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Week'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+<div class="container">
+    <h2>Budgeting Challenge</h2>
+    <p>Allocate your budget to different categories and see if you can balance your expenses!</p>
+    
+    <div class="budget-item">
+        <label for="income">Monthly Income:</label>
+        <input type="number" id="income" value="2000" min="0">
+    </div>
+    
+    <div class="budget-item">
+        <label for="rent">Rent:</label>
+        <input type="number" id="rent" value="500" min="0">
+    </div>
+    
+    <div class="budget-item">
+        <label for="food">Food:</label>
+        <input type="number" id="food" value="300" min="0">
+    </div>
+    
+    <div class="budget-item">
+        <label for="transport">Transport:</label>
+        <input type="number" id="transport" value="100" min="0">
+    </div>
+    
+    <div class="budget-item">
+        <label for="utilities">Utilities:</label>
+        <input type="number" id="utilities" value="100" min="0">
+    </div>
+    
+    <div class="budget-item">
+        <label for="entertainment">Entertainment:</label>
+        <input type="number" id="entertainment" value="100" min="0">
+    </div>
+    
+    <div class="budget-item">
+        <label for="savings">Savings:</label>
+        <input type="number" id="savings" value="200" min="0">
+    </div>
+    
+    <div class="budget-total" id="total">Total: 1300</div>
+    
+    <div class="actions">
+        <button onclick="calculateBudget()">Calculate Total</button>
+        <button onclick="resetValues()">Reset</button>
+    </div>
+    
+    <div class="error" id="error-message"></div>
+</div>
+
+<script>
+    function calculateBudget() {
+        const income = parseFloat(document.getElementById('income').value);
+        const rent = parseFloat(document.getElementById('rent').value);
+        const food = parseFloat(document.getElementById('food').value);
+        const transport = parseFloat(document.getElementById('transport').value);
+        const utilities = parseFloat(document.getElementById('utilities').value);
+        const entertainment = parseFloat(document.getElementById('entertainment').value);
+        const savings = parseFloat(document.getElementById('savings').value);
+        
+        const totalExpenses = rent + food + transport + utilities + entertainment + savings;
+        const total = document.getElementById('total');
+        const errorMessage = document.getElementById('error-message');
+        
+        total.textContent = `Total: ${totalExpenses}`;
+        
+        if (totalExpenses > income) {
+            errorMessage.textContent = "Budget exceeded! Please adjust your allocations.";
+        } else {
+            errorMessage.textContent = "";
+        }
+    }
+    
+    function resetValues() {
+        document.getElementById('income').value = 2000;
+        document.getElementById('rent').value = 500;
+        document.getElementById('food').value = 300;
+        document.getElementById('transport').value = 100;
+        document.getElementById('utilities').value = 100;
+        document.getElementById('entertainment').value = 100;
+        document.getElementById('savings').value = 200;
+        calculateBudget();
+    }
+    
+    calculateBudget(); // Calculate initial total
+</script>
+
+<h2>Virtual Stock Market Game</h2>
+<p>Buy and sell virtual stocks to grow your portfolio! Make smart investment choices.</p>
+
+<table class="stock-table">
+    <thead>
+        <tr>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Stock A</td>
+            <td id="stockA-price">100</td>
+            <td><input type="number" id="stockA-qty" value="0" min="0"></td>
+            <td>
+                <button onclick="buyStock('A')">Buy</button>
+                <button onclick="sellStock('A')">Sell</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Stock B</td>
+            <td id="stockB-price">200</td>
+            <td><input type="number" id="stockB-qty" value="0" min="0"></td>
+            <td>
+                <button onclick="buyStock('B')">Buy</button>
+                <button onclick="sellStock('B')">Sell</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Stock C</td>
+            <td id="stockC-price">150</td>
+            <td><input type="number" id="stockC-qty" value="0" min="0"></td>
+            <td>
+                <button onclick="buyStock('C')">Buy</button>
+                <button onclick="sellStock('C')">Sell</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="actions">
+    <button onclick="simulatePriceChange()">Simulate Stock Price Change</button>
+</div>
+
+<div class="actions">
+    <p>Total Portfolio Value: <span id="portfolio-value">0</span></p>
+</div>
+</div>
+
+<script>
+let portfolio = {
+    A: 0,
+    B: 0,
+    C: 0,
+};
+
+function buyStock(stock) {
+    const qtyInput = document.getElementById(`stock${stock}-qty`);
+    const qty = parseFloat(qtyInput.value);
+    portfolio[stock] += qty;
+    calculatePortfolioValue();
+}
+
+function sellStock(stock) {
+    const qtyInput = document.getElementById(`stock${stock}-qty`);
+    const qty = parseFloat(qtyInput.value);
+    if (portfolio[stock] >= qty) {
+        portfolio[stock] -= qty;
+    } else {
+        alert("Not enough shares to sell.");
+    }
+    calculatePortfolioValue();
+}
+
+function simulatePriceChange() {
+    const stockAPrice = Math.random() * 100 + 50;
+    const stockBPrice = Math.random() * 100 + 100;
+    const stockCPrice = Math.random() * 50 + 100;
+    
+    document.getElementById('stockA-price').textContent = stockAPrice.toFixed(2);
+    document.getElementById('stockB-price').textContent = stockBPrice.toFixed(2);
+    document.getElementById('stockC-price').textContent = stockCPrice.toFixed(2);
+    
+    calculatePortfolioValue();
+}
+
+function calculatePortfolioValue() {
+    const stockAPrice = parseFloat(document.getElementById('stockA-price').textContent);
+    const stockBPrice = parseFloat(document.getElementById('stockB-price').textContent);
+    const stockCPrice = parseFloat(document.getElementById('stockC-price').textContent);
+    
+    const portfolioValue = 
+        portfolio.A * stockAPrice +
+        portfolio.B * stockBPrice +
+        portfolio.C * stockCPrice;
+    
+    document.getElementById('portfolio-value').textContent = portfolioValue.toFixed(2);
+}
+
+simulatePriceChange(); // Initial price simulation
+</script>
+     <div class="resource">
+        <h2>Video Resources</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wKl_kZ7Wef0?si=TzSmN2DS8gkg0ZBB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BV_XkanSiHI?si=_dB84y1aJtFfWlkq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sNocjsSSRkE?si=js9S7dwkcC1isQ1H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Hh-beQj1OK4?si=Q1s1j4IxcpV5BVnO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="resource">
+    <h2>Blog</h2>
+    <div class="blog-container">
+        <div class="blog-item">
+            <h3> Tips for Building a Budget</h3>
+            <p>Learn how to create and stick to a budget with these helpful tips.
+            <a href="https://www.bing.com/ck/a?!&&p=bb6884d511365ac7JmltdHM9MTcxMjk2NjQwMCZpZ3VpZD0wM2IxNzA5Ny05YjQyLTZlYTQtMjJlOC02MmQzOWFlYTZmODAmaW5zaWQ9NTIyNA&ptn=3&ver=2&hsh=3&fclid=03b17097-9b42-6ea4-22e8-62d39aea6f80&psq=Tips+for+Building+a+Budget+blog&u=a1aHR0cHM6Ly9haHJlZnMuY29tL2Jsb2cvYmxvZ2dpbmctdGlwcy8&ntb=1">for more</a>
+            </p>
+        </div>
+        <div class="blog-item">
+            <h3> Easy Ways to Save Money</h3>
+            <p>Discover simple strategies to save money and reach your financial goals faster.
+                <a href="https://www.bing.com/ck/a?!&&p=fbdc242b28c67bb7JmltdHM9MTcxMjk2NjQwMCZpZ3VpZD0wM2IxNzA5Ny05YjQyLTZlYTQtMjJlOC02MmQzOWFlYTZmODAmaW5zaWQ9NTIyNQ&ptn=3&ver=2&hsh=3&fclid=03b17097-9b42-6ea4-22e8-62d39aea6f80&psq=easy+way+to+save+money+blogg&u=a1aHR0cHM6Ly93d3cuY2xldmVyZ2lybGZpbmFuY2UuY29tL2hvdy10by1zYXZlLW1vbmV5LWVhY2gtbW9udGgv&ntb=1">for more</a>
+            </p>
+        </div>
+        <div class="blog-item">
+            <h3> Budget</h3>
+            <p>Learn how to create and stick to a budget with these helpful tips.
+                <a href="https://www.bing.com/ck/a?!&&p=a72544a813a5615fJmltdHM9MTcxMjk2NjQwMCZpZ3VpZD0wM2IxNzA5Ny05YjQyLTZlYTQtMjJlOC02MmQzOWFlYTZmODAmaW5zaWQ9NTI4OA&ptn=3&ver=2&hsh=3&fclid=03b17097-9b42-6ea4-22e8-62d39aea6f80&psq=easy+way+to+save+money+blogg&u=a1aHR0cHM6Ly93d3cudGhlYmFsYW5jZW1vbmV5LmNvbS93YXlzLXRvLXNhdmUtbW9uZXktdGhpcy15ZWFyLTIzODYxMTY&ntb=1">for more</a>
+            </p>
+        </div>
+        <div class="blog-item">
+            <h3>Money</h3>
+            <p>Discover simple strategies to save money and reach your financial goals faster.
+                <a href="https://www.bing.com/ck/a?!&&p=a2bea6d3a0661de5JmltdHM9MTcxMjk2NjQwMCZpZ3VpZD0wM2IxNzA5Ny05YjQyLTZlYTQtMjJlOC02MmQzOWFlYTZmODAmaW5zaWQ9NTQ5NA&ptn=3&ver=2&hsh=3&fclid=03b17097-9b42-6ea4-22e8-62d39aea6f80&psq=blog+on+money+mangement&u=a1aHR0cHM6Ly93d3cub2JlcmxvLmNvbS9ibG9nL2Jlc3QtcGVyc29uYWwtZmluYW5jZS1ibG9ncw&ntb=1">for more</a>
+            </p>
+        </div>
+        <!-- Add more blog items here -->
+    </div>
+</div>
+</div>
+
+<footer class="bg-dark text-light py-5" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <p >
+                    Eco-Finance India<br>
+                    Contact Address:TV Tower<br>
+                    Alpha Lane <br>
+                    Aanant Vihar, Banglore, 8001652<br>
+                    India
+                </p>
+                <p>
+                    Phone Number:<br>
+                    <a href="tel:+91 8585858585">+91 8548729585</a>
+                    <a href="tel:+91 8585858589">+91 8518372962</a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h4>Connect</h4>
+                <a href="gmailto:pwskills.ca@gmail.com"><img src="gmail_logo.png" alt="Gmail"  width="30" height="30"></a>
+                <a href="https://www.facebook.com/profile.php?id=100069759655054&mibextid=ZbWKwL"><img src="fb_logo.png" alt="Facebook"  width="30" height="30"></a>
+                <a href="https://www.facebook.com/profile.php?id=100069759655054&mibextid=ZbWKwL"><img src="x_logo.png" alt="Twitter" width="30" height="30"></a>
+                
+            </div>
+            
+        </div>
+        
+            
+        <div class="row">
+            <div class="col-md-6">
+                <p><a href="privacy_policy.html">Privacy Policy</a></p>
+            </div>
+            <div class="col-md-6">
+                <p><a href="terms_of_service.html">Terms of Service</a></p>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+</body>
+</html>
